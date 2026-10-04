@@ -1,0 +1,46 @@
+test_200_turn_compression_and_old_memory_recall (test_agent.AgentTests.test_200_turn_compression_and_old_memory_recall) ... ok
+test_context_overflow_reports_instead_of_breaking_protocol (test_agent.AgentTests.test_context_overflow_reports_instead_of_breaking_protocol) ... ok
+test_direct_chat_and_followup (test_agent.AgentTests.test_direct_chat_and_followup) ... ok
+test_failed_arguments_unknown_tool_and_division_can_recover (test_agent.AgentTests.test_failed_arguments_unknown_tool_and_division_can_recover) ... ok
+test_input_limits (test_agent.AgentTests.test_input_limits) ... ok
+test_large_todo_list_is_paginated_and_full_todos_remain (test_agent.AgentTests.test_large_todo_list_is_paginated_and_full_todos_remain) ... ok
+test_max_steps_preserves_all_call_pairs (test_agent.AgentTests.test_max_steps_preserves_all_call_pairs) ... ok
+test_model_failure_after_write_and_lock_release (test_agent.AgentTests.test_model_failure_after_write_and_lock_release) ... ok
+test_multiple_steps_tool_results_and_followup (test_agent.AgentTests.test_multiple_steps_tool_results_and_followup) ... ok
+test_repeated_call_id_never_duplicates_todo (test_agent.AgentTests.test_repeated_call_id_never_duplicates_todo) ... ok
+test_same_session_busy_other_session_available (test_agent.AgentTests.test_same_session_busy_other_session_available) ... ok
+test_sessions_users_and_restart_are_isolated (test_agent.AgentTests.test_sessions_users_and_restart_are_isolated) ... ok
+test_trace_file_contains_metadata_not_prompt (test_agent.AgentTests.test_trace_file_contains_metadata_not_prompt) ... ok
+test_http_adapter_sends_schemas_and_parses_response (test_agent.ProtocolTests.test_http_adapter_sends_schemas_and_parses_response) ... ok
+test_malformed_and_truncated_envelopes (test_agent.ProtocolTests.test_malformed_and_truncated_envelopes) ... ok
+test_network_and_invalid_json_errors (test_agent.ProtocolTests.test_network_and_invalid_json_errors) ... ok
+test_retry_and_sensitive_error_body_not_exposed (test_agent.ProtocolTests.test_retry_and_sensitive_error_body_not_exposed) ... ok
+test_calculator_math_and_unsafe_input (test_agent.ToolTests.test_calculator_math_and_unsafe_input) ... ok
+test_registration_and_unexpected_tool_exception (test_agent.ToolTests.test_registration_and_unexpected_tool_exception) ... ok
+test_schema_rejects_extras_wrong_types_missing_and_large_input (test_agent.ToolTests.test_schema_rejects_extras_wrong_types_missing_and_large_input) ... ok
+test_search_is_explicit_mock (test_agent.ToolTests.test_search_is_explicit_mock) ... ok
+test_todo_crud_and_bad_operations (test_agent.ToolTests.test_todo_crud_and_bad_operations) ... ok
+test_claims_release_on_exception_without_unbounded_lock_cache (test_review.ReviewTests.test_claims_release_on_exception_without_unbounded_lock_cache) ... ok
+test_definitions_cannot_change_execution_schema (test_review.ReviewTests.test_definitions_cannot_change_execution_schema) ... ok
+test_duplicate_json_keys_are_rejected_before_write (test_review.ReviewTests.test_duplicate_json_keys_are_rejected_before_write) ... ok
+test_escaped_tool_preview_respects_serialized_budget (test_review.ReviewTests.test_escaped_tool_preview_respects_serialized_budget) ... ok
+test_failed_handler_rolls_back_local_state (test_review.ReviewTests.test_failed_handler_rolls_back_local_state) ... ok
+test_failed_write_then_successful_write_and_model_error (test_review.ReviewTests.test_failed_write_then_successful_write_and_model_error) ... ok
+test_http_response_duplicate_fields_are_protocol_errors (test_review.ReviewTests.test_http_response_duplicate_fields_are_protocol_errors) ... ok
+test_invalid_input_types_fail_before_loading_or_model (test_review.ReviewTests.test_invalid_input_types_fail_before_loading_or_model) ... ok
+test_late_old_answer_fact_is_recalled (test_review.ReviewTests.test_late_old_answer_fact_is_recalled) ... ok
+test_memory_database_is_rejected_explicitly (test_review.ReviewTests.test_memory_database_is_rejected_explicitly) ... ok
+test_nonfinite_json_is_rejected_before_handler (test_review.ReviewTests.test_nonfinite_json_is_rejected_before_handler) ... ok
+test_nonserializable_result_and_state_roll_back (test_review.ReviewTests.test_nonserializable_result_and_state_roll_back) ... ok
+test_old_final_answer_is_not_displaced_by_tool_action_text (test_review.ReviewTests.test_old_final_answer_is_not_displaced_by_tool_action_text) ... ok
+test_pagination_empty_last_page_and_invalid_bounds (test_review.ReviewTests.test_pagination_empty_last_page_and_invalid_bounds) ... ok
+test_pagination_retrieves_every_escaped_todo_exactly (test_review.ReviewTests.test_pagination_retrieves_every_escaped_todo_exactly) ... ok
+test_registration_copies_caller_schema (test_review.ReviewTests.test_registration_copies_caller_schema) ... ok
+test_seeded_500_todo_operations_preserve_state_invariants (test_review.ReviewTests.test_seeded_500_todo_operations_preserve_state_invariants) ... ok
+test_tool_result_cannot_mutate_committed_state (test_review.ReviewTests.test_tool_result_cannot_mutate_committed_state) ... ok
+test_two_store_instances_share_session_exclusion (test_review.ReviewTests.test_two_store_instances_share_session_exclusion) ... ok
+
+----------------------------------------------------------------------
+Ran 41 tests in 1.701s
+
+OK

@@ -69,3 +69,11 @@ API 协议依据：[DeepSeek 工具调用](https://api-docs.deepseek.com/guides/
 实际修复：失败 handler 回滚；不可编码状态拒绝；Schema 与工具结果的引用隔离；严格 JSON；同进程多 store 会话互斥；转义后预算检查；完整文本检索与命中窗口；输入类型检查；明确拒绝 :memory:。详细数据、取舍和未解决边界在 review-report.md。
 
 面试问答参考本人的 Notion 腾讯、滴滴和企业级 Agent 项目笔记。问题为结合本项目重新设计的模拟追问，不伪称光辰智能面试原题。没有增加新依赖，也没有运行真实模型或虚构准确率提升数据。
+
+## 2026-10-05 输入与认证排障
+
+用户反馈：隐藏输入时无法确认密钥是否粘贴。查看实际截图和不含密钥的报告，首个聊天任务返回 HTTP 401，模型另有 deepsekk-flash 拼写错误。按 DeepSeek 官方错误码文档，401 为认证失败，不能仅修正模型名就宣称通过。
+
+修复 Windows 入口为星号显示、字符计数、退格与清空；保护非 Windows getpass 不降级为明文输入。失败时保留 failed 状态并恢复环境，报告字段 planned_tasks 只表示计划数量。新增五项离线测试均通过，46 项总测试通过；Windows 交互测试使用占位值，不读取用户密钥。真实认证仍需用户本地重试。
+
+参考：https://api-docs.deepseek.com/zh-cn/quick_start/error_codes/ 。

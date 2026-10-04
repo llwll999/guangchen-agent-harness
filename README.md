@@ -2,7 +2,7 @@
 
 为 [Agent harness 笔试题](https://ucnk0qbix8zv.feishu.cn/docx/BQkad8EA6oXK1rxuqbec9ycXnbd) 实现的最小 CLI Agent。核心循环、消息解析、工具注册、session 与 context 管理均自行实现。唯一运行时第三方依赖是 `jsonschema`，用于标准 JSON Schema 校验。
 
-**验证状态（2026-10-05）：41 项离线自动测试通过，包括 500 次固定种子随机 CRUD 和 100 条特殊字符待办的完整分页读取。真实模型验收待配置 API；离线测试不替代真实调用验收。**
+**验证状态（2026-10-05）：46 项离线自动测试通过，包括 500 次固定种子随机 CRUD 和 100 条特殊字符待办的完整分页读取。首次真实模型验收返回 HTTP 401，认证失败，尚未通过；离线测试不替代真实调用验收。**
 
 ## 安装和运行
 
@@ -123,7 +123,7 @@ todo 修改发生在当前任务的内存状态，结束时和历史一起原子
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-41 项离线测试覆盖：纯聊天追问、多步工具和结果使用、工具追问、两个窗口/用户隔离与重启恢复、严格 JSON/Schema、未知工具、除零、步数上限、失败后持久化、重复调用、同进程多 store 的 busy、日志、200 轮压缩与关键词召回、长答案末尾事实召回、转义后结果预算、calculator 安全边界、500 次固定种子随机 todo CRUD、100 条特殊字符待办完整分页、handler 失败回滚、Schema/结果引用隔离、mock search、HTTP 请求/响应、429 重试、网络和协议错误。测试中的 `ScriptModel` 只用于验证 Runtime，不证明真实模型能正确自主决策。
+46 项离线测试覆盖：纯聊天追问、多步工具和结果使用、工具追问、两个窗口/用户隔离与重启恢复、严格 JSON/Schema、未知工具、除零、步数上限、失败后持久化、重复调用、同进程多 store 的 busy、日志、200 轮压缩与关键词召回、长答案末尾事实召回、转义后结果预算、calculator 安全边界、500 次固定种子随机 todo CRUD、100 条特殊字符待办完整分页、handler 失败回滚、Schema/结果引用隔离、mock search、HTTP 请求/响应、429 重试、网络和协议错误。测试中的 `ScriptModel` 只用于验证 Runtime，不证明真实模型能正确自主决策。
 
 配置真实 API 后运行（会产生服务商调用费用，共六个用户任务及若干工具后的模型请求）：
 
@@ -151,3 +151,5 @@ uv run python scripts/configure_and_smoke.py
 ```
 
 这会执行六个真实用户任务并产生服务商调用费用。脚本只在当前进程中设置 API key，退出时移除，验收结论写入 docs/real-api-validation.json。相同环境也可直接运行 scripts/smoke_real.py。逐段代码说明与面试追问见 docs/code-guide.md 和 docs/interview-qa.md。
+
+Windows 下启动 configure_and_smoke.py 后，官方 DeepSeek 配置的前三项直接回车。在密钥项用 Ctrl+Shift+V 粘贴，再回车；仅显示星号与收到的字符数，退格删除、Ctrl+U 清空。字符数只证明输入已收到，不证明密钥有效。HTTP 401 是认证失败，重新复制该服务商的有效 API key；模型应为 deepseek-flash，避免误填 deepsekk-flash。新增五项测试覆盖遮蔽输入、退格/特殊键、清空、取消/EOF 和失败后的环境恢复及无密钥报告。

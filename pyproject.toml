@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mini-agent-harness"
+version = "0.1.0"
+description = "A small, inspectable agent runtime for an interview assignment"
+requires-python = ">=3.11"
+dependencies = ["jsonschema>=4.23,<5"]
+
+[project.scripts]
+mini-agent = "mini_agent.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["mini_agent*"]

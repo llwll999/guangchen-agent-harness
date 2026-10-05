@@ -4,6 +4,20 @@
 
 **验证状态（2026-10-05）：46 项离线自动测试通过，包括 500 次固定种子随机 CRUD 和 100 条特殊字符待办的完整分页读取。用户本地使用 deepseek-flash 非思考模式完成六个真实用户任务，烟雾验收通过（2026-10-05 11:55，上海时间）。这只验证指定场景，不保证任意回答正确。**
 
+## 笔试提交入口
+
+本仓库包含 Vibe Coding 代码和五道架构设计题答案，提交本仓库的一个 GitHub 链接即可查看全部材料。
+
+| 材料 | 查看入口 |
+| --- | --- |
+| Vibe Coding 实现 | [Agent 源码](mini_agent)、[自动测试](tests)，安装及运行方法见下文 |
+| 架构设计答案 | [PDF 完整答案](docs/architecture-answers.pdf)、[可编辑正文](docs/architecture-submission.md)；选题为 1#2、2#1、3#1、4#2、5#2 |
+| 验收记录 | [离线测试与真实 API 验收](docs/validation.md) |
+| AI 使用与问题解决 | [实际 Prompt 与修复记录](docs/ai-log.md) |
+| 代码理解与面试准备 | [逐模块讲解](docs/code-guide.md)、[面试追问](docs/interview-qa.md) |
+
+下载完整提交包：点击仓库的 **Code → Download ZIP**。下载内容包含源码、架构 PDF、测试、锁文件和说明文档；运行者自行配置 API 密钥。
+
 ## 安装和运行
 
 Python 3.11+。下载源码后安装依赖，推荐使用 uv。运行时第三方依赖只有 jsonschema，其他核心模块使用 Python 标准库。

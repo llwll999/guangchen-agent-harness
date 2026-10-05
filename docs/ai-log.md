@@ -77,3 +77,9 @@ API 协议依据：[DeepSeek 工具调用](https://api-docs.deepseek.com/guides/
 修复 Windows 入口为星号显示、字符计数、退格与清空；保护非 Windows getpass 不降级为明文输入。失败时保留 failed 状态并恢复环境，报告字段 planned_tasks 只表示计划数量。新增五项离线测试均通过，46 项总测试通过；Windows 交互测试使用占位值，不读取用户密钥。真实认证仍需用户本地重试。
 
 参考：https://api-docs.deepseek.com/zh-cn/quick_start/error_codes/ 。
+
+## 2026-10-05 真实 API 验收补录
+
+用户重新粘贴密钥后提供完整成功截图。本地报告为 deepseek-flash / passed / planned_tasks=6，时间 2026-10-05 11:55:12（上海）。此次为用户本地实际运行，AI 未使用 mock 替代，不接收密钥。README 与验收记录更新为真实烟雾测试已通过。
+
+逐项阅读发现模型还说历史中已有重复待办。脚本检查添加后只有一条待办，说明这段警告无依据，不能认定数据库重复。可能与当前待办预览和历史资料的合并提示有关，已记录局限；本次未修改运行源码，验收结果对应 f0262be 版本。

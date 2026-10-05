@@ -100,7 +100,7 @@ busy 是正在执行的状态，不能作为丢弃已确认输入的理由。核
 
 ### 比较范围
 
-我主要讨论旧 AgentController/EventStream 路线，并参考后续 SDK 的模块边界。官方 2025-09-04 的 v1 迁移说明讨论了旧 pub/sub EventStream 的顺序、线程与异步复杂性，并提出同步 conversation 执行方向。当前 SDK 文档将 Agent、Conversation、Tools、Workspace 等职责分开，所以不能笼统认为所有版本都缺少边界。依据见文末官方链接；以下改进是我的设计判断。
+我主要讨论旧 AgentController/EventStream 路线，并参考后续 SDK 的模块边界。官方 2025-09-04 的 v1 迁移说明讨论了旧 pub/sub EventStream 的顺序、线程与异步复杂性，并提出同步 conversation 执行方向。当前 SDK 文档将 Agent、Conversation、Tools、Workspace 等职责分开，所以不能笼统认为所有版本都缺少边界。以下改进是我的设计判断。
 
 ### 优点与问题
 
@@ -117,11 +117,3 @@ busy 是正在执行的状态，不能作为丢弃已确认输入的理由。核
 ### 为什么本次没有直接上完整事件系统
 
 事件化增加版本、恢复、积压、幂等与运维成本。本次本地工具执行快、单进程 CLI 也容易解释，所以同步循环是合理起点。只有慢工具、多 worker、长程恢复和可靠通知成为实际要求时，再增加 durable inbox 和单写者协调。我会用重复完成事件、取消竞态和重放测试验证改进，而非以代码层数更少作为“更优雅”的证据。
-
-## 参考资料
-
-原题：[2026 年 Agent harness 技术笔试题](https://ucnk0qbix8zv.feishu.cn/docx/BQkad8EA6oXK1rxuqbec9ycXnbd)。
-
-模块五版本与组件依据：[OpenHands v1 迁移说明](https://www.openhands.dev/blog/the-path-to-openhands-v1)、[官方 SDK 架构](https://docs.openhands.dev/sdk/arch/overview)、[Conversation 持久化](https://docs.openhands.dev/sdk/guides/convo-persistence)。核对日期 2026-10-05。
-
-本次实现及离线数据依据仓库源码、tests/test_agent.py、tests/test_review.py 和 docs/validation.md。架构扩展方案没有宣称已在本项目完成，也没有虚构延迟或准确率提升。
